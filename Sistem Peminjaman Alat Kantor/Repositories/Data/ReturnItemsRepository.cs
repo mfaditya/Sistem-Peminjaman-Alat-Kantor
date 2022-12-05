@@ -15,7 +15,7 @@ namespace WebAPi.Repositories.Data
         }
 
         [HttpPost]
-        public int ReturnItem(ReturnItemVM returnItem)
+        public int ReturnItem(ReturnItem returnItem)
         {
             var rtrnItem = new ReturnItem
             {

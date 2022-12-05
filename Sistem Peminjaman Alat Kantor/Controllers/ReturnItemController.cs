@@ -25,25 +25,6 @@ namespace WebAPi.Controllers
         [HttpPost("NewReturn")]
         public ActionResult ReturnItem(ReturnItem returnItem)
         {
-            //var returnItm = new ReturnItem
-            //{
-            //    RequestItemId = returnItem.RequestItemId,
-            //    Notes = returnItem.Notes
-            //};
-            //myContext.ReturnItems.Add(returnItm);
-            //myContext.SaveChanges();
-
-            //var dataRequest = myContext.RequestItems.Where(R => R.Id == returnItem.RequestItemId).FirstOrDefault();
-            //var data = myContext.Items.Include(I => I.RequestItems).Where(I => I.Id == dataRequest.ItemId).FirstOrDefault();
-            //data.Quantity += dataRequest.Quantity;
-            //myContext.Entry(data).State = EntityState.Modified;
-            //myContext.SaveChanges();
-
-            //dataRequest.StatusId = 2; // Returned
-            //myContext.Entry(dataRequest).State = EntityState.Modified;
-            //myContext.SaveChanges();
-
-            //return StatusCode(200, new { status = HttpStatusCode.OK, message = "Return Item Berhasil" });
             try
             {
                 var rtrnItem = new ReturnItem

@@ -26,7 +26,7 @@ namespace WebAPi.Controllers
             _configuration = config;
         }
 
-        //[AllowAnonymous]
+        [AllowAnonymous]
         [HttpPost]
         [Route("Login")]
         public ActionResult Login(LoginVM login)

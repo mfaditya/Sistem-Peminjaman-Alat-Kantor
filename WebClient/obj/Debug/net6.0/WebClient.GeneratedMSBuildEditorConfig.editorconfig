@@ -15,6 +15,22 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Project\Sitem Peminjaman Alat Kantor\WebClient
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Project/Sitem Peminjaman Alat Kantor/WebClient/Views/Auth/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/Sitem Peminjaman Alat Kantor/WebClient/Views/Dashboard/Admin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEFkbWluLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/Sitem Peminjaman Alat Kantor/WebClient/Views/Dashboard/Employee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEVtcGxveWVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/Sitem Peminjaman Alat Kantor/WebClient/Views/Dashboard/Manager.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXE1hbmFnZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Project/Sitem Peminjaman Alat Kantor/WebClient/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -25,6 +41,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Project/Sitem Peminjaman Alat Kantor/WebClient/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/Sitem Peminjaman Alat Kantor/WebClient/Views/Shared/_LayoutDashboardEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXREYXNoYm9hcmRFbXBsb3llZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Project/Sitem Peminjaman Alat Kantor/WebClient/Views/Shared/_ValidationScriptsPartial.cshtml]

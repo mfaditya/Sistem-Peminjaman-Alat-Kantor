@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebAPi.Base;
 using WebAPi.Context;
@@ -20,6 +21,7 @@ namespace WebAPi.Controllers
             this.statusRepository = statusRepository;
         }
 
+        //[Authorize(Roles = "Manager")]
         [HttpPut("Approve")]
         public ActionResult Approve(RequestItemVM requestItem)
         {
