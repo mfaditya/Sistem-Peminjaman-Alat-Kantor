@@ -12,8 +12,8 @@ using WebAPi.Context;
 namespace WebAPi.Migrations
 {
     [DbContext(typeof(MyContext))]
-    [Migration("20221203085041_Add_Notes_RequestItem")]
-    partial class Add_Notes_RequestItem
+    [Migration("20221206090109_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

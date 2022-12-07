@@ -16,7 +16,7 @@ namespace WebAPi.Repositories.Data
         }
 
         [HttpPost]
-        public int RequestItem(RequestItemVM requestItem)
+        public int RequestItem(RequestItem requestItem)
         {
             var checkItem = myContext.Items.Where(i => i.Id == requestItem.ItemId).SingleOrDefault();
             if(requestItem.Quantity > checkItem.Quantity)

@@ -1,8 +1,79 @@
 ﻿
 @{
     ViewData["Title"] = "Admin";
-    Layout = "_Layout";
+    Layout = "AdminLayout";
 }
 
-<h1>Admin</h1>
+<div class="card card-primary card-outline">
+    <div class="card-header">
+        <h1>Data Item</h1>
+    </div>
+    <div class="card-body">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addNewItem">
+            Create New Data
+        </button>
+        <table class="table table-striped" id="tableDataReqItem">
+            <thead>
+                <tr>
+                    <th class="d-none d-sm-table-cell dt-control">Id</th>
+                    <th class="d-none d-sm-table-cell">Nama</th>
+                    <th class="d-none d-sm-table-cell">Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
 
+<!-- Modal Add Item-->
+<div class="modal fade" id="addNewItem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalAddNewItem">New Item</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="return false" name="formAddNewItem" class="needs-validation" novalidate>
+                    <div class="form-group">
+                        <label for="name">Name Item</label>
+                        <input type="text" class="form-control" id="name" placeholder="Name" required>
+                        <div class="valid-feedback">
+                        </div>
+                        <div class="invalid-feedback">
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="text" class="form-control" id="quantity" placeholder="Quantity" required>
+                        <div class="valid-feedback">
+                        </div>
+                        <div class="invalid-feedback">
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="form-group">
+                            <label for="categoryId">Category</label>
+                            <select class="form-control" id="categoryId">
+                                <option hidden>Choose</option>
+                                <option value="1">Electronic</option>
+                                <option value="2">Vehicles</option>
+                            </select>
+                        </div>
+                        <div class="invalid-feedback">
+                        </div>
+                    </div>
+
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button class="btn btn-primary" onclick="AddNewItem()">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

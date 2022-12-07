@@ -17,15 +17,15 @@ namespace WebAPi.Controllers
         private RequestItemsRepository requestItemsRepository;
         private MyContext myContext;
         //public IConfiguration _configuration;
-        public RequestItemController(RequestItemsRepository repository) : base(repository)
+        public RequestItemController(RequestItemsRepository repository, MyContext myContext) : base(repository)
         {
             this.requestItemsRepository = repository;
-            //this.myContext = myContext;
+            this.myContext = myContext;
             //_configuration = config;
         }
 
-        [HttpPost(("NewRequest"))]
-        public ActionResult RequestItem(RequestItemVM requestItem)
+        [HttpPost("NewRequest")]
+        public ActionResult RequestItem(RequestItem requestItem)
         {
             try
             {
@@ -82,6 +82,32 @@ namespace WebAPi.Controllers
                     Message = ex.Message,
                 });
             }
+        }
+
+        [HttpGet("RequestNeedsApproval")]
+        public ActionResult RequestNeedsApproval()
+        {
+            var userRequest = from U in myContext.Users
+                              join A in myContext.Accounts on U.Id equals A.Id
+                              join R in myContext.RequestItems on A.Id equals R.UserId
+                              join I in myContext.Items on R.ItemId equals I.Id
+                              join C in myContext.Categories on I.CategoryId equals C.Id
+                              join S in myContext.Status on R.StatusId equals S.Id
+                              where R.StatusId == 3
+                              select new
+                              {
+                                  Id = R.Id,
+                                  UserId = R.UserId,
+                                  Name = U.FullName + " ",
+                                  Item = I.Name,
+                                  ItemId = R.ItemId,
+                                  StartDate = R.StartDate,
+                                  EndDate = R.EndDate,
+                                  Quantity = R.Quantity,
+                                  Notes = R.Notes,
+                                  Status = S.Name
+                              };
+            return Ok(userRequest);
         }
     }
 }

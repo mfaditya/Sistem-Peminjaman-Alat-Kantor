@@ -32,12 +32,12 @@ namespace WebAPi.Models
         public int StatusId { get; set; }
 
         [JsonIgnore]
-        public virtual Account Accounts { get; set; }
+        public virtual Account ?Accounts { get; set; }
         [JsonIgnore]
-        public virtual Item Items { get; set; }
+        public virtual Item ?Items { get; set; }
         [JsonIgnore]
-        public virtual ReturnItem ReturnItems { get; set; }
+        public virtual ReturnItem ?ReturnItems { get; set; }
         [JsonIgnore]
-        public virtual Status Status { get; set; }
+        public virtual Status ?Status { get; set; }
     }
 }

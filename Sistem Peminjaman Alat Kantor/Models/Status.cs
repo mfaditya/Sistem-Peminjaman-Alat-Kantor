@@ -18,6 +18,6 @@ namespace WebAPi.Models
         public int Id { get; set; }
         public string Name { get; set; }
         [JsonIgnore]
-        public virtual ICollection<RequestItem> RequestItems { get; set; }
+        public virtual ICollection<RequestItem> ?RequestItems { get; set; }
     }
 }

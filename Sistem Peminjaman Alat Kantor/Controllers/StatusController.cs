@@ -23,7 +23,7 @@ namespace WebAPi.Controllers
 
         //[Authorize(Roles = "Manager")]
         [HttpPut("Approve")]
-        public ActionResult Approve(RequestItemVM requestItem)
+        public ActionResult ApproveRequest(RequestItem requestItem)
         {
             try
             {
@@ -56,14 +56,118 @@ namespace WebAPi.Controllers
             }
         }
 
+        [HttpPut("Reject")]
+        public ActionResult RejectRequest(RequestItem requestItem)
+        {
+            try
+            {
+                var data = statusRepository.Reject(requestItem);
+                if (data > 0)
+                {
+                    return Ok(new
+                    {
+                        StatusCode = 200,
+                        Message = "Data Approved",
+                        Data = data
+                    });
+                }
+                else
+                {
+                    return Ok(new
+                    {
+                        StatusCode = 400,
+                        Message = "Data Not Approve"
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    StatusCode = 400,
+                    Message = ex.Message,
+                });
+            }
+        }
+
+        [HttpPut("TakeAnItem")]
+        public ActionResult TakeAnItem(RequestItem requestItem)
+        {
+            try
+            {
+                var data = statusRepository.TakeAnItem(requestItem);
+                if (data > 0)
+                {
+                    return Ok(new
+                    {
+                        StatusCode = 200,
+                        Message = "Data Approved",
+                        Data = data
+                    });
+                }
+                else
+                {
+                    return Ok(new
+                    {
+                        StatusCode = 400,
+                        Message = "Data Not Approve"
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    StatusCode = 400,
+                    Message = ex.Message,
+                });
+            }
+        }
+
+        [HttpPut("Return")]
+        public ActionResult ReturnItem(RequestItem requestItem)
+        {
+            try
+            {
+                var data = statusRepository.Return(requestItem);
+                if (data > 0)
+                {
+                    return Ok(new
+                    {
+                        StatusCode = 200,
+                        Message = "Data Approved",
+                        Data = data
+                    });
+                }
+                else
+                {
+                    return Ok(new
+                    {
+                        StatusCode = 400,
+                        Message = "Data Not Approve"
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new
+                {
+                    StatusCode = 400,
+                    Message = ex.Message,
+                });
+            }
+        }
+
         [HttpGet("ReqReject")]
         public ActionResult ReqReject()
         {
-            var reqReject = from R in myContext.RequestItems
+            var reqReject = from U in myContext.Users
+                            join R in myContext.RequestItems on U.Id equals R.UserId
                             join S in myContext.Status on R.StatusId equals S.Id
                             where R.StatusId == 1
                             select new
                             {
+                                Name = U.FullName,
                                 Status = S.Name
                             };
             return Ok(reqReject);
@@ -72,11 +176,13 @@ namespace WebAPi.Controllers
         [HttpGet("ReqReturn")]
         public ActionResult ReqReturn()
         {
-            var reqReturn = from R in myContext.RequestItems
+            var reqReturn = from U in myContext.Users
+                            join R in myContext.RequestItems on U.Id equals R.UserId
                             join S in myContext.Status on R.StatusId equals S.Id
                             where R.StatusId == 2
                             select new
                             {
+                                Name = U.FullName,
                                 Status = S.Name
                             };
             return Ok(reqReturn);
@@ -85,11 +191,13 @@ namespace WebAPi.Controllers
         [HttpGet("ReqWaiting")]
         public ActionResult ReqWaiting()
         {
-            var reqWaiting = from R in myContext.RequestItems
+            var reqWaiting = from U in myContext.Users
+                             join R in myContext.RequestItems on U.Id equals R.UserId
                              join S in myContext.Status on R.StatusId equals S.Id
                              where R.StatusId == 3
                              select new
                              {
+                                 Name = U.FullName,
                                  Status = S.Name
                              };
             return Ok(reqWaiting);
@@ -98,11 +206,28 @@ namespace WebAPi.Controllers
         [HttpGet("ReqApprove")]
         public ActionResult ReqApprove()
         {
-            var reqApprove = from R in myContext.RequestItems
+            var reqApprove = from U in myContext.Users
+                             join R in myContext.RequestItems on U.Id equals R.UserId
                              join S in myContext.Status on R.StatusId equals S.Id
                              where R.StatusId == 4
                              select new
                              {
+                                 Name = U.FullName,
+                                 Status = S.Name
+                             };
+            return Ok(reqApprove);
+        }
+
+        [HttpGet("ReqTakenItem")]
+        public ActionResult ReqTakenItem()
+        {
+            var reqApprove = from U in myContext.Users
+                             join R in myContext.RequestItems on U.Id equals R.UserId
+                             join S in myContext.Status on R.StatusId equals S.Id
+                             where R.StatusId == 5
+                             select new
+                             {
+                                 Name = U.FullName,
                                  Status = S.Name
                              };
             return Ok(reqApprove);

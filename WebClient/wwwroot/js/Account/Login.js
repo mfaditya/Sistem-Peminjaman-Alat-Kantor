@@ -1,13 +1,13 @@
 ﻿function login() {
-    let data = new Object();
-    data.Email = $("#inputName").val();
-    data.Password = $("#inputPassword").val();
+    let login = new Object();
+    login.Email = $("#inputName").val();
+    login.Password = $("#inputPassword").val();
 
-    console.log(data)
+    console.log(login)
     $.ajax({
         type: 'post',
         url: '/Auth/Login',
-        data: data
+        data: login
     }).done((result) => {
         console.log("ok", result);
         if (result == '/Dashboard/Employee' || result == '/Dashboard/Manager' || result == '/Dashboard/Admin') {

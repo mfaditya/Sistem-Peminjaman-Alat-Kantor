@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using WebAPi.ViewModel;
 using WebClient.Models;
 
 namespace WebClient.Controllers
@@ -13,9 +14,9 @@ namespace WebClient.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(LoginVM login)
         {
-            return View();
+            return View(login);
         }
 
         public IActionResult Privacy()

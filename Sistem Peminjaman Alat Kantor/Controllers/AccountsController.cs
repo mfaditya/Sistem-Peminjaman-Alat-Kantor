@@ -1,5 +1,7 @@
-﻿using System.IdentityModel.Tokens.Jwt;
+﻿using System.Data;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Principal;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -20,9 +22,10 @@ namespace WebAPi.Controllers
         private AccountRepository  accountRepository;
         private MyContext myContext;
         public IConfiguration _configuration;
-        public AccountsController(IConfiguration config, AccountRepository accountRepository) : base(accountRepository)
+        public AccountsController(IConfiguration config, AccountRepository accountRepository, MyContext myContext) : base(accountRepository)
         {
             this.accountRepository = accountRepository;
+            this.myContext = myContext;
             _configuration = config;
         }
 
@@ -37,15 +40,20 @@ namespace WebAPi.Controllers
 
                 if (data != null)
                 {
-                    var claims = new[] {
+                    var roles = myContext.AccountRoles.Where(ra => ra.AccountId == data.Id).ToList();
+                    var claims = new List<Claim> {
                         new Claim(JwtRegisteredClaimNames.Sub, _configuration["Jwt:Subject"]),
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                         new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
                         new Claim("Id", data.Id.ToString()),
                         new Claim("FullName", data.FullName),
                         new Claim("Email", data.Email),
-                        new Claim("Role", data.Roles)
-                    };
+                        //new Claim("Role", data.Roles)
+                    }; 
+                    foreach (var item in roles)
+                    {
+                        claims.Add(new Claim(ClaimTypes.Role, myContext.Roles.Where(r => r.Id == item.RoleId).FirstOrDefault().Name));
+                    }
 
                     var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
                     var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -56,13 +64,15 @@ namespace WebAPi.Controllers
                         expires: DateTime.UtcNow.AddMinutes(10),
                         signingCredentials: signIn);
 
-                    string tokenCode = new JwtSecurityTokenHandler().WriteToken(token);
-                    return Ok(new
-                    {
-                        StatusCode = 200,
-                        Message = "Login Success",
-                        token = tokenCode
-                    });
+                    return Ok(new JwtSecurityTokenHandler().WriteToken(token));
+
+                    //string tokenCode = new JwtSecurityTokenHandler().WriteToken(token);
+                    //return Ok(new
+                    //{
+                    //    StatusCode = 200,
+                    //    Message = "Login Success",
+                    //    token = tokenCode
+                    //});
                     //return Ok(new JwtSecurityTokenHandler().WriteToken(token));
 
                 }

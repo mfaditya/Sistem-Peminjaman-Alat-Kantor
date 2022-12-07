@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "TakeAnItem";
+    Layout = "AdminLayout";
+}
+
+<div class="card card-primary card-outline">
+    <div class="card-header">
+        <h1>Information Status</h1>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped" id="tableDataListReq">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>User Id</th>
+                    <th>Item Id</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Quantity</th>
+                    <th>Notes</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!--Modal Approve-->
+<div class="modal fade" id="needsApproval" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+            </div>
+            <div class="modal-body">
+                <div id="editStatus">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+

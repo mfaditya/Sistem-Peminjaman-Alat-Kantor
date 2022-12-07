@@ -1,4 +1,5 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
+using System.Net;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -20,7 +21,6 @@ namespace WebClient.Controllers
             var httpClient = new HttpClient();
             StringContent content = new StringContent(JsonConvert.SerializeObject(loginVm), Encoding.UTF8, "application/json");
             var result = httpClient.PostAsync("https://localhost:7095/api/Accounts/Login", content).Result;
-
 
             var token = result.Content.ReadAsStringAsync().Result;
             HttpContext.Session.SetString("token", token);
@@ -65,5 +65,13 @@ namespace WebClient.Controllers
             return View();
         }
 
+        [HttpPost]
+        public HttpStatusCode Register(RegisterVM registerVM)
+        {
+            var httpClient = new HttpClient();
+            StringContent content = new StringContent(JsonConvert.SerializeObject(registerVM), Encoding.UTF8, "application/json");
+            var result = httpClient.PostAsync("https://localhost:44395/API/Account/Register", content).Result;
+            return result.StatusCode;
+        }
     }
 }

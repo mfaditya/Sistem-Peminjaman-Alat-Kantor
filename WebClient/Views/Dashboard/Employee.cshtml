@@ -1,9 +1,33 @@
-﻿
-@{
-    ViewData["Title"] = "Employee";
-    Layout = "~/Views/Shared/_LayoutDashboardEmployee.cshtml";
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "EmployeeLayout";
     var fullName = ViewData["fullName"];
-}
+} 
 
-<h1>Employee</h1>
+<div class="page-breadcrumb">
+    <div class="row">
+        <div class="col-7 align-self-center">
+            <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Welcome, <span class="page-title text-truncate text-dark font-weight-lighter mb-1"> @fullName!</span></h3>
+        </div>
+    </div>
+</div>
+
+<div class="card card-primary card-outline">
+    <div class="card-header">
+        <h1>Data Item</h1>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped" id="tableDataItem">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nama</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
 

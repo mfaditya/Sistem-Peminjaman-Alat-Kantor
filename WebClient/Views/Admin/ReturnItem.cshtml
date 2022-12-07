@@ -1,0 +1,86 @@
+﻿@{
+    ViewData["Title"] = "ReturnAsset";
+    Layout = "AdminLayout";
+}
+
+<div class="card card-primary card-outline">
+    <div class="card-header">
+        <h1>Data Item</h1>
+    </div>
+    <div class="card-body">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#returnAsset">
+            Return Item
+        </button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#returnAsset">
+            Return Item
+        </button>
+        <table class="table table-striped" id="tableDataReqItem">
+            <thead>
+                <tr>
+                    <th class="d-none d-sm-table-cell dt-control">Id</th>
+                    <th class="d-none d-sm-table-cell">Nama</th>
+                    <th class="d-none d-sm-table-cell">Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="card card-primary card-outline">
+    <div class="card-header">
+        <h1>Notes Return Item</h1>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped" id="tableDataReturnItem">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Request Item Id</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!--Modal Create Item-->
+<div class="modal fade" id="returnAsset" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalReturnAsset">Return Asset Condition</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="return false" name="formReturnAsset" class="needs-validation" novalidate>
+
+                    <div class="form-group">
+                        <label for="requestItemId">Request Item Id</label>
+                        <input type="number" class="form-control" id="requestItemId" placeholder="Request Id" required disabled>
+                        <div class="valid-feedback">
+                        </div>
+                        <div class="invalid-feedback">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="note">Notes</label>
+                        <input type="text" class="form-control" id="note" placeholder="Notes" required>
+                        <div class="valid-feedback">
+                        </div>
+                        <div class="invalid-feedback">
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button class="btn btn-primary" onclick="ReturnAnAsset()" data-dismiss="modal">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
