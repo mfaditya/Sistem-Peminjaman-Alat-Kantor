@@ -15,6 +15,12 @@ namespace WebClient.Controllers
         {
             return View();
         }
+
+        //[HttpPost]
+        //public IActionResult Login(LoginVM login)
+        //{
+        //    return View(login);
+        //}
         [HttpPost]
         public string Login(LoginVM loginVm)
         {
@@ -59,19 +65,6 @@ namespace WebClient.Controllers
             }
         }
 
-        [Route("ForgotPassword")]
-        public IActionResult ForgotPassword()
-        {
-            return View();
-        }
 
-        [HttpPost]
-        public HttpStatusCode Register(RegisterVM registerVM)
-        {
-            var httpClient = new HttpClient();
-            StringContent content = new StringContent(JsonConvert.SerializeObject(registerVM), Encoding.UTF8, "application/json");
-            var result = httpClient.PostAsync("https://localhost:44395/API/Account/Register", content).Result;
-            return result.StatusCode;
-        }
     }
 }

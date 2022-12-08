@@ -22,10 +22,8 @@
 
 $(document).ready(function () {
     $('#tableDataListReq').DataTable({
-    //var statusWaiting = $('#tableDataListReq').DataTable({
         ajax: {
             url: `https://localhost:7095/api/RequestItem`,
-            //datatype: "json",
             type: "GET",
             dataSrc: 'data',
         },

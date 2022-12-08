@@ -4,6 +4,7 @@
     Layout = "AdminLayout";
 }
 
+<!--Card Status Item-->
 <div class="card card-primary card-outline">
     <div class="card-header">
         <h1>Information Status</h1>
@@ -21,6 +22,29 @@
                     <th>Notes</th>
                     <th>Status</th>
                     <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!--Card return Item-->
+<div class="card card-primary card-outline">
+    <div class="card-header">
+        <h1>Notes Return Item</h1>
+    </div>
+    <div class="card-body">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#returnItem">
+            Return Item
+        </button>
+        <table class="table table-striped" id="tableDataReturnItem">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Request Item Id</th>
+                    <th>Notes</th>
                 </tr>
             </thead>
             <tbody>
@@ -47,3 +71,40 @@
     </div>
 </div>
 
+<!--Modal Return Item-->
+<div class="modal fade" id="returnItem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalReturnAsset">Return Item Condition</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="return false" name="formReturnAsset" class="needs-validation" novalidate>
+
+                    <div class="form-group">
+                        <label for="requestItemId">Request Item Id</label>
+                        <input type="number" class="form-control" id="requestItemId" placeholder="Request Id">
+                        <div class="valid-feedback">
+                        </div>
+                        <div class="invalid-feedback">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Notes</label>
+                        <input type="text" class="form-control" id="notes" placeholder="Notes">
+                        <div class="valid-feedback">
+                        </div>
+                        <div class="invalid-feedback">
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button class="btn btn-primary" onclick="ReturnUserItem()">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

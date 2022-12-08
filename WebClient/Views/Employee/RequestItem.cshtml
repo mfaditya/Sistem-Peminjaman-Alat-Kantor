@@ -5,42 +5,75 @@
     var id2 = ViewData["id"];
 }
 
-<div class="card card-primary card-outline" id="req">
+<!--Card Status-->
+<div class="card card-primary card-outline">
     <div class="card-header">
-        <h1>Request Item</h1>
+        <h1>Data Item</h1>
     </div>
     <div class="card-body">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addRequestItem">
+            Request Item
+        </button>
+        <table class="table table-striped" id="tableDataListReq">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>User Id</th>
+                    <th>Item Id</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Quantity</th>
+                    <th>Notes</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
 
-        <form id="requestNewItemForm" method="post" name="form1" onsubmit="return false">
-            <div class="form-group">
-                <label for="input-userId" class="form-control-label" hidden>User Id</label>
-                <input type="text" id="input-akunId" class="form-control form-control-alternative" value="@id2" readonly/>
+<!--Modal Request Item-->
+<div class="modal fade" id="addRequestItem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalAddNewItem">New Item</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="form-group focused">
-                <label class="form-control-label" for="input-quantity">Quantity</label>
-                <input type="text" id="input-quantity" name="qty" class="form-control form-control-alternative" placeholder="Number of item">
-            </div>
-            <div class="form-group">
-                <label class="form-control-label" for="items"> Item</label>
-                <input type="text" id="input-item" name="item" class="form-control form-control-alternative">
-            </div>
-            <div class="form-group">
-                <label class="form-control-label" for="input-start-date">Start Date</label>
+            <div class="modal-body">
+                <form id="requestNewItemForm" method="post" name="form1" onsubmit="return false">
+                    <div class="form-group">
+                        <label for="input-userId" class="form-control-label" hidden>User Id</label>
+                        <input type="text" id="input-akunId" class="form-control form-control-alternative" value="@id2" readonly />
+                    </div>
+                    <div class="form-group focused">
+                        <label class="form-control-label" for="input-quantity">Quantity</label>
+                        <input type="text" id="input-quantity" name="qty" class="form-control form-control-alternative" placeholder="Number of item">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" for="items"> Item</label>
+                        <input type="text" id="input-item" name="item" class="form-control form-control-alternative">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" for="input-start-date">Start Date</label>
 
-                <input type="datetime-local" id="input-start-date" name="startDate" class="form-control form-control-alternative">
-                <div></div>
-                <label class="form-control-label" for="input-start-date">End Date</label>
-                <input type="datetime-local" id="input-end-date" name="endDate" class="form-control form-control-alternative">
+                        <input type="datetime-local" id="input-start-date" name="startDate" class="form-control form-control-alternative">
+                        <div></div>
+                        <label class="form-control-label" for="input-start-date">End Date</label>
+                        <input type="datetime-local" id="input-end-date" name="endDate" class="form-control form-control-alternative">
+                    </div>
+                    <div class="form-group focused">
+                        <label>Notes</label>
+                        <textarea rows="4" class="form-control form-control-alternative" id="input-notes" name="notes" placeholder="Type in your purpose for borrowing this item... "></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-right">
+                            <a href="#" class="btn btn-primary" onclick="RequestItem()">Submit</a>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="form-group focused">
-                <label>Notes</label>
-                <textarea rows="4" class="form-control form-control-alternative" id="input-notes" name="notes" placeholder="Type in your purpose for borrowing this item... "></textarea>
-            </div>
-            <div class="row">
-                <div class="col-12 text-right">
-                    <a href="#" class="btn btn-primary" onclick="RequestItem()">Submit</a>
-                </div>
-            </div>
-        </form>
+        </div>
     </div>
 </div>

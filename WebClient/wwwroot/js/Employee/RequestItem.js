@@ -21,6 +21,31 @@
     });
 });
 
+//card status
+$(document).ready(function () {
+    $('#tableDataListReq').DataTable({
+        ajax: {
+            url: `https://localhost:7095/api/RequestItem`,
+            type: "GET",
+            dataSrc: 'data',
+        },
+
+        columns: [
+            { data: 'id' },
+            { data: 'userId' },
+            { data: 'itemId' },
+            { data: 'startDate' },
+            { data: 'endDate' },
+            { data: 'quantity' },
+            { data: 'notes' },
+            { data: 'statusId' },
+        ],
+        dom: 'Bfrtip',
+        buttons: ['colvis', 'copy', 'excel', 'pdf', 'print']
+    });
+});
+
+//modal request item
 function RequestItem() {
     let data;
     let id = 0;

@@ -12,12 +12,14 @@
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addNewItem">
             Create New Data
         </button>
-        <table class="table table-striped" id="tableDataReqItem">
+        <table class="table table-striped" id="tableDataItem">
             <thead>
                 <tr>
-                    <th class="d-none d-sm-table-cell dt-control">Id</th>
-                    <th class="d-none d-sm-table-cell">Nama</th>
-                    <th class="d-none d-sm-table-cell">Quantity</th>
+                    <th>Id</th>
+                    <th>Nama</th>
+                    <th>Quantity</th>
+                    <th>Category Id</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -61,6 +63,7 @@
                                 <option hidden>Choose</option>
                                 <option value="1">Electronic</option>
                                 <option value="2">Vehicles</option>
+                                <option value="3">Furniture</option>
                             </select>
                         </div>
                         <div class="invalid-feedback">
@@ -73,6 +76,50 @@
                     </div>
 
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal Edit-->
+<div class="modal fade" id="editDataItem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+            </div>
+            <div class="modal-body">
+                <div id="editItem">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Chart-->
+<div class="card py-4 px-4">
+    <h3 style="float:left;">Chart Item</h3>
+    <div class="row">
+        <div class="col">
+            <div class="card mb-3">
+                <h6 style="float:left; padding:8px;">Pie Chart</h6>
+                <div class="card-body p-3">
+                    <div id="pieChart">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card mb-3">
+                <h6 style="float:left; padding:8px;">Bar Chart</h6>
+                <div class="card-body p-3">
+                    <div id="barChart">
+                    </div>
+                </div>
             </div>
         </div>
     </div>

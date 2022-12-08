@@ -49,7 +49,7 @@ namespace WebAPi.Controllers
                         new Claim("FullName", data.FullName),
                         new Claim("Email", data.Email),
                         //new Claim("Role", data.Roles)
-                    }; 
+                    };
                     foreach (var item in roles)
                     {
                         claims.Add(new Claim(ClaimTypes.Role, myContext.Roles.Where(r => r.Id == item.RoleId).FirstOrDefault().Name));

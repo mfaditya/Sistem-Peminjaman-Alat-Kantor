@@ -27,28 +27,9 @@ namespace WebAPi.Controllers
         {
             try
             {
-                var rtrnItem = new ReturnItem
+                var data = returnItemsRepository.ReturnItem(returnItem);
+                if (data > 0)
                 {
-                    RequestItemId = returnItem.RequestItemId,
-                    Notes = returnItem.Notes
-                };
-
-                myContext.ReturnItems.Add(rtrnItem);
-                var result = myContext.SaveChanges();
-                if (result > 0)
-                {
-
-
-                    var dataRequest = myContext.RequestItems.Where(R => R.Id == returnItem.RequestItemId).FirstOrDefault();
-                    var data = myContext.Items.Include(I => I.RequestItems).Where(I => I.Id == dataRequest.ItemId).FirstOrDefault();
-                    data.Quantity += dataRequest.Quantity;
-                    myContext.Entry(data).State = EntityState.Modified;
-                    //myContext.SaveChanges();
-
-                    dataRequest.StatusId = 2; // Returned
-                    myContext.Entry(dataRequest).State = EntityState.Modified;
-
-                    myContext.SaveChanges();
                     return Ok(new
                     {
                         StatusCode = 200,
