@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dH9XR4WSvFzgKoqKSuWCtXQjVaYJ6k/tub6nH4F9Tfo=",
+  "Hash": "UIdy5lUAUUewTMr0kc2aYm280U2+dPYl1P35JEGeZJE=",
   "Source": "WebClient",
   "BasePath": "_content/WebClient",
   "Mode": "Default",
@@ -214,6 +214,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\item.png"
+    },
+    {
+      "Identity": "D:\\Project\\Sitem Peminjaman Alat Kantor\\WebClient\\wwwroot\\img\\item-shadow.png",
+      "SourceId": "WebClient",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\Sitem Peminjaman Alat Kantor\\WebClient\\wwwroot\\",
+      "BasePath": "_content/WebClient",
+      "RelativePath": "img/item-shadow.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\item-shadow.png"
     },
     {
       "Identity": "D:\\Project\\Sitem Peminjaman Alat Kantor\\WebClient\\wwwroot\\img\\logo_metrodata_academy.f40277dc.svg",

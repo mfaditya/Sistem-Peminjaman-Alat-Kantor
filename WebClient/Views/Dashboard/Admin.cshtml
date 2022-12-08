@@ -4,14 +4,46 @@
     Layout = "AdminLayout";
 }
 
-<div class="card card-primary card-outline">
-    <div class="card-header">
-        <h1>Data Item</h1>
+<div class="row">
+    <h3 class="text-white">Admin</h3>
+    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addNewItem">
+        Create New Data
+    </button>
+</div>
+
+<!--Chart-->
+<div class="card py-4 px-4">
+    <h3 style="float:left;">Chart Item</h3>
+    <div class="row">
+        <div class="col">
+            <div class="card mb-3">
+                <h6 style="float:left; padding:8px;">Pie Chart</h6>
+                <div class="card-body p-3">
+                    <div id="pieChart">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card mb-3">
+                <h6 style="float:left; padding:8px;">Bar Chart</h6>
+                <div class="card-body p-3">
+                    <div id="barChart">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+
+<p> 
+     
+</p>
+
+<div class="card card-primary card-outline py-4 px-4">
+    <h1>Data Item</h1>
     <div class="card-body">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addNewItem">
-            Create New Data
-        </button>
         <table class="table table-striped" id="tableDataItem">
             <thead>
                 <tr>
@@ -99,28 +131,3 @@
     </div>
 </div>
 
-<!--Chart-->
-<div class="card py-4 px-4">
-    <h3 style="float:left;">Chart Item</h3>
-    <div class="row">
-        <div class="col">
-            <div class="card mb-3">
-                <h6 style="float:left; padding:8px;">Pie Chart</h6>
-                <div class="card-body p-3">
-                    <div id="pieChart">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card mb-3">
-                <h6 style="float:left; padding:8px;">Bar Chart</h6>
-                <div class="card-body p-3">
-                    <div id="barChart">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>

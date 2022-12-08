@@ -17,7 +17,7 @@
             },
         ],
         dom: 'Bfrtip',
-        buttons: ['colvis', 'copy', 'excel', 'pdf', 'print']
+        buttons: ['colvis']
     });
 });
 

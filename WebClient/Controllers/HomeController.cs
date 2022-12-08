@@ -14,9 +14,9 @@ namespace WebClient.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index(LoginVM login)
+        public IActionResult Index()
         {
-            return View(login);
+            return View();
         }
 
         public IActionResult Privacy()

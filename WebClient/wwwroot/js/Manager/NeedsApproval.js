@@ -65,7 +65,7 @@ $(document).ready(function () {
             //}
         ],
         dom: 'Bfrtip',
-        buttons: ['colvis', 'copy', 'excel', 'pdf', 'print']
+        buttons: ['colvis']
     });
 
     //$('#tableDataListReq tbody').on('click', 'td.details-control', function () {

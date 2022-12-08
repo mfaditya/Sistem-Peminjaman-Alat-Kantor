@@ -22,8 +22,14 @@
                 }
             },
         ],
+        columnDefs: [
+            {
+                targets: [4, 5],
+                "render": $.fn.dataTable.render.moment('YYYY/MM/DD')
+            },
+        ],
         dom: 'Bfrtip',
-        buttons: ['colvis', 'copy', 'excel', 'pdf', 'print']
+        buttons: ['colvis']
     });
 });
 

@@ -16,3 +16,8 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+#item-shadow{
+    height: 30%;
+    width: 20%;
+}

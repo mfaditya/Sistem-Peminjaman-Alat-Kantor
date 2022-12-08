@@ -28,8 +28,4 @@
     <ProjectReference Include="..\Sistem Peminjaman Alat Kantor\WebAPi.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Manager\" />
-  </ItemGroup>
-
 </Project>

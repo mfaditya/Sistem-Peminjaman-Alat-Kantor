@@ -29,7 +29,7 @@
                 height: '250%',
                 type: 'pie',
             },
-            labels: ['Electronic', 'Vehicle', 'Furniture'],
+            labels: ['1: Electronic', '2: Vehicle', '3: Furniture'],
             responsive: [{
                 breakpoint: 480,
                 options: {
