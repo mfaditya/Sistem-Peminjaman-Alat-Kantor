@@ -7,29 +7,31 @@
 
 <!--Card Status-->
 <div class="card card-primary card-outline">
-    <div class="card-header">
-        <h1>Data Item</h1>
+    <div class="card-header p-2">
+        <h2>Data Item</h2>
     </div>
     <div class="card-body">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addRequestItem">
-            Request Item
+            Request History
         </button>
-        <table class="table table-striped" id="tableDataListReq">
-            <thead>
-                <tr>
-                    <th>Request Id</th>
-                    <th>User Id</th>
-                    <th>Item Id</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                    <th>Quantity</th>
-                    <th>Notes</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-striped" id="tableDataListReq">
+                <thead class="bg-secondary text-white">
+                    <tr>
+                        <th>Id</th>
+                        <th>User Id</th>
+                        <th>Item Id</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Quantity</th>
+                        <th>Notes</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 

@@ -130,39 +130,39 @@ namespace WebAPi.Controllers
             }
         }
 
-        [HttpPost]
-        [Route("Forgot Password")]
-        public ActionResult ForgotPassword(ForgotPasswordVM forgotPassword)
-        {
-            try
-            {
-                var data = accountRepository.ForgotPassword(forgotPassword);
-                if (data != null)
-                {
-                    return Ok(new
-                    {
-                        StatusCode = 200,
-                        Message = "Kamu Berhasil Daftar"
-                    });
-                }
-                else
-                {
-                    return Ok(new
-                    {
-                        StatusCode = 400,
-                        Message = "Kamu Gagal Daftar",
-                        Data = data
-                    });
-                }
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new
-                {
-                    StatusCode = 400,
-                    Message = ex.Message,
-                });
-            }
-        }
+        //[HttpPost]
+        //[Route("Forgot Password")]
+        //public ActionResult ForgotPassword(ForgotPasswordVM forgotPassword)
+        //{
+        //    try
+        //    {
+        //        var data = accountRepository.ForgotPassword(forgotPassword);
+        //        if (data != null)
+        //        {
+        //            return Ok(new
+        //            {
+        //                StatusCode = 200,
+        //                Message = "Kamu Berhasil Daftar"
+        //            });
+        //        }
+        //        else
+        //        {
+        //            return Ok(new
+        //            {
+        //                StatusCode = 400,
+        //                Message = "Kamu Gagal Daftar",
+        //                Data = data
+        //            });
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return BadRequest(new
+        //        {
+        //            StatusCode = 400,
+        //            Message = ex.Message,
+        //        });
+        //    }
+        //}
     }
 }

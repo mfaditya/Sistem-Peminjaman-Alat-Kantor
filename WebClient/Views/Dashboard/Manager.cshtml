@@ -11,30 +11,32 @@
             <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Welcome, <span class="page-title text-truncate text-dark font-weight-lighter mb-1"> @fullName!</span></h3>
         </div>
     </div>
-    <div class="card-header">
-        <h1>Data Item</h1>
+    <div class="card-headep-2">
+        <h2>Request History</h2>
     </div>
     <div class="card-body">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#needsApproval">
             Create New Data
         </button>
-        <table class="table table-striped" id="tableDataListReq">
-            <thead>
-                <tr>
-                    <th>Request Id</th>
-                    <th>User Id</th>
-                    <th>Item Id</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                    <th>Quantity</th>
-                    <th>Notes</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-striped text-center" id="tableDataList" width="100%">
+                <thead class="bg-secondary text-white">
+                    <tr>
+                        <th>Request Id</th>
+                        <th>User Id</th>
+                        <th>Item Id</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Quantity</th>
+                        <th>Notes</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 

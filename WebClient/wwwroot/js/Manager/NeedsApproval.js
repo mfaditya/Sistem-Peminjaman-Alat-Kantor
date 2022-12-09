@@ -21,48 +21,34 @@
 //}
 
 $(document).ready(function () {
-    $('#tableDataListReq').DataTable({
+    $('#tableDataList').DataTable({
         ajax: {
-            url: `https://localhost:7095/api/RequestItem`,
-            type: "GET",
-            dataSrc: 'data',
+            url: `https://localhost:7095/api/RequestItem/UserRequest`,
+            datatype: "json",
+            dataSrc: "",
         },
 
         columns: [
+            //{
+            //    'className': 'details-control',
+            //    'orderable': false,
+            //    'data': null,
+            //    'defaultContent': ''
+            //},
             { data: 'id' },
             { data: 'userId' },
-            //{ data: 'name' },
-            //{ data: 'item' },
-            { data: 'itemId' },
+            { data: 'item' },
             { data: 'startDate' },
             { data: 'endDate' },
-            //{
-            //    data: 'startDate',
-            //    "render": function (data) {
-            //        return moment(data).format('DD-MM-YYYY')
-            //    }
-            //},
-            //{
-            //    data: 'endDate',
-            //    "render": function (data) {
-            //        return moment(data).format('DD-MM-YYYY')
-            //    }
-            //},
             { data: 'quantity' },
             { data: 'notes' },
-            { data: 'statusId' },
+            { data: 'status' },
             {
                 data: null,
                 "render": function (data, type, row, meta) {
                     return `<button type= "button" data-bs-toggle="modal" data-bs-target="#needsApproval" onclick="NeedsApproval('${data.id}')" class= "btn btn-primary">Approval Check</button>`
                 }
             },
-            //{
-            //    'className': 'details-control',
-            //    'orderable': false,
-            //    'data': null,
-            //    'defaultContent': ''
-            //}
         ],
         dom: 'Bfrtip',
         buttons: ['colvis']

@@ -6,50 +6,58 @@
 
 <!--Card Status Item-->
 <div class="card card-primary card-outline">
-    <div class="card-header">
-        <h1>Information Status</h1>
+    <div class="card-header p-2">
+        <h2>Request History</h2>
     </div>
     <div class="card-body">
-        <table class="table table-striped" id="tableDataListReq">
-            <thead>
-                <tr>
-                    <th>Request Id</th>
-                    <th>User Id</th>
-                    <th>Item Id</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                    <th>Quantity</th>
-                    <th>Notes</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-striped" id="tableDataListReq">
+                <thead class="bg-secondary text-white">
+                    <tr>
+                        <th>Request Id</th>
+                        <th>User Id</th>
+                        <th>Item Id</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Quantity</th>
+                        <th>Notes</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
+<p>
+
+</p>
+
 <!--Card return Item-->
 <div class="card card-primary card-outline">
-    <div class="card-header">
-        <h1>Notes Return Item</h1>
+    <div class="card-header p-2">
+        <h2>Notes Return Item</h2>
     </div>
     <div class="card-body">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#returnItem">
             Return Item
         </button>
-        <table class="table table-striped" id="tableDataReturnItem">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Request Item Id</th>
-                    <th>Notes</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-striped" id="tableDataReturnItem">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Request Item Id</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 

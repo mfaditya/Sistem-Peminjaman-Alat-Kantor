@@ -1,31 +1,31 @@
 ﻿$(document).ready(function () {
     $('#tableDataListReq').DataTable({
         ajax: {
-            url: `https://localhost:7095/api/RequestItem`,
-            type: "GET",
-            dataSrc: 'data',
+            url: `https://localhost:7095/api/RequestItem/UserRequest`,
+            datatype: "json",
+            dataSrc: "",
         },
 
         columns: [
+            //{
+            //    'className': 'details-control',
+            //    'orderable': false,
+            //    'data': null,
+            //    'defaultContent': ''
+            //},
             { data: 'id' },
             { data: 'userId' },
-            { data: 'itemId' },
+            { data: 'item' },
             { data: 'startDate' },
             { data: 'endDate' },
             { data: 'quantity' },
             { data: 'notes' },
-            { data: 'statusId' },
+            { data: 'status' },
             {
                 data: null,
                 "render": function (data, type, row, meta) {
                     return `<button type= "button" data-bs-toggle="modal" data-bs-target="#needsApproval" onclick="editStatus('${data.id}')" class= "btn btn-primary">Update Status</button>`
                 }
-            },
-        ],
-        columnDefs: [
-            {
-                targets: [4, 5],
-                "render": $.fn.dataTable.render.moment('YYYY/MM/DD')
             },
         ],
         dom: 'Bfrtip',

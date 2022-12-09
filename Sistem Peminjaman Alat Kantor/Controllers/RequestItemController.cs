@@ -109,5 +109,30 @@ namespace WebAPi.Controllers
                               };
             return Ok(userRequest);
         }
+
+        [HttpGet("UserRequest")]
+        public ActionResult UserRequest()
+        {
+            var userRequest = from U in myContext.Users
+                              join A in myContext.Accounts on U.Id equals A.Id
+                              join R in myContext.RequestItems on A.Id equals R.UserId
+                              join I in myContext.Items on R.ItemId equals I.Id
+                              join C in myContext.Categories on I.CategoryId equals C.Id
+                              join S in myContext.Status on R.StatusId equals S.Id
+                              select new
+                              {
+                                  Id = R.Id,
+                                  UserId = R.UserId,
+                                  Name = U.FullName + " ",
+                                  Item = I.Name,
+                                  ItemId = R.ItemId,
+                                  StartDate = R.StartDate,
+                                  EndDate = R.EndDate,
+                                  Quantity = R.Quantity,
+                                  Notes = R.Notes,
+                                  Status = S.Name
+                              };
+            return Ok(userRequest);
+        }
     }
 }

@@ -25,16 +25,16 @@
         var options = {
             series: [categoryId1, categoryId2, categoryId3],
             chart: {
-                width: 500,
-                height: '250%',
+                width: 350,
+                height: '170%',
                 type: 'pie',
             },
             labels: ['1: Electronic', '2: Vehicle', '3: Furniture'],
             responsive: [{
-                breakpoint: 480,
+                breakpoint: 450,
                 options: {
                     chart: {
-                        width: 500
+                        width: 350
                     },
                     legend: {
                         show: true,
@@ -49,7 +49,7 @@
                 data: [categoryId1, categoryId2, categoryId3],
             }],
             chart: {
-                height: 350,
+                height: 250,
                 type: 'bar',
                 events: {
                     click: function (chart, w, e) {

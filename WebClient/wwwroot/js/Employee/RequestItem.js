@@ -25,20 +25,26 @@
 $(document).ready(function () {
     $('#tableDataListReq').DataTable({
         ajax: {
-            url: `https://localhost:7095/api/RequestItem`,
-            type: "GET",
-            dataSrc: 'data',
+            url: `https://localhost:7095/api/RequestItem/USerRequest`,
+            datatype: "json",
+            dataSrc: "",
         },
 
         columns: [
+            //{
+            //    'className': 'details-control',
+            //    'orderable': false,
+            //    'data': null,
+            //    'defaultContent': ''
+            //},
             { data: 'id' },
             { data: 'userId' },
-            { data: 'itemId' },
+            { data: 'item' },
             { data: 'startDate' },
             { data: 'endDate' },
             { data: 'quantity' },
             { data: 'notes' },
-            { data: 'statusId' },
+            { data: 'status' },
         ],
         dom: 'Bfrtip',
         buttons: ['colvis']

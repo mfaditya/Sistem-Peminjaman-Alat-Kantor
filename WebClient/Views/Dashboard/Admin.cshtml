@@ -4,21 +4,14 @@
     Layout = "AdminLayout";
 }
 
-<div class="row">
-    <h3 class="text-white">Admin</h3>
-    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addNewItem">
-        Create New Data
-    </button>
-</div>
-
 <!--Chart-->
 <div class="card py-4 px-4">
-    <h3 style="float:left;">Chart Item</h3>
+    <h3 style="float:left;">Chart Category Item</h3>
     <div class="row">
         <div class="col">
-            <div class="card mb-3">
+            <div class="card mb-4">
                 <h6 style="float:left; padding:8px;">Pie Chart</h6>
-                <div class="card-body p-3">
+                <div class="card-body p-4">
                     <div id="pieChart">
                     </div>
                 </div>
@@ -42,21 +35,26 @@
 </p>
 
 <div class="card card-primary card-outline py-4 px-4">
-    <h1>Data Item</h1>
+    <h2>Data Item</h2>
     <div class="card-body">
-        <table class="table table-striped" id="tableDataItem">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Nama</th>
-                    <th>Quantity</th>
-                    <th>Category Id</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#addNewItem">
+            Add Item
+        </button>
+        <div class="table-responsive">
+            <table class="table table-striped text-center" id="tableDataItem" width="100%">
+                <thead class="bg-secondary text-white">
+                    <tr>
+                        <th>Id</th>
+                        <th>Nama</th>
+                        <th>Quantity</th>
+                        <th>Category Id</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
