@@ -16,11 +16,40 @@
             { data: 'id' },
             { data: 'userId' },
             { data: 'item' },
-            { data: 'startDate' },
-            { data: 'endDate' },
+            {
+                data: null,
+                "render": function (data, type, row, meta) {
+                    return new Date(data.startDate).toLocaleDateString().substring(0, 10);
+                }
+            },
+            {
+                data: null,
+                "render": function (data, type, row, meta) {
+                    return new Date(data.endDate).toLocaleDateString().substring(0, 10);
+                }
+            },
             { data: 'quantity' },
             { data: 'notes' },
-            { data: 'status' },
+            {
+                data: null,
+                "render": function (data, type, row, meta) {
+                    if (data.status == 1) {
+                        return `<span class="badge bg-danger">Reject</span>`;
+                    }
+                    else if (data.status == 2) {
+                        return `<span class="badge bg-info">Return</span>`;
+                    }
+                    else if (data.status == 3) {
+                        return `<span class="badge bg-warning">Waiting</span>`;
+                    }
+                    else if (data.status == 4) {
+                        return `<span class="badge bg-success">Approve</span>`;
+                    }
+                    else if (data.status == 5) {
+                        return `<span class="badge bg-primary">Taken</span>`;
+                    }
+                }
+            },
             {
                 data: null,
                 "render": function (data, type, row, meta) {

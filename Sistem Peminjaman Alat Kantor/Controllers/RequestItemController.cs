@@ -130,7 +130,7 @@ namespace WebAPi.Controllers
                                   EndDate = R.EndDate,
                                   Quantity = R.Quantity,
                                   Notes = R.Notes,
-                                  Status = S.Name
+                                  Status = S.Id
                               };
             return Ok(userRequest);
         }

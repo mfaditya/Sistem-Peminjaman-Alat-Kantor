@@ -26,23 +26,47 @@ $(document).ready(function () {
             url: `https://localhost:7095/api/RequestItem/UserRequest`,
             datatype: "json",
             dataSrc: "",
+            "type": "GET",
         },
 
         columns: [
-            //{
-            //    'className': 'details-control',
-            //    'orderable': false,
-            //    'data': null,
-            //    'defaultContent': ''
-            //},
             { data: 'id' },
             { data: 'userId' },
             { data: 'item' },
-            { data: 'startDate' },
-            { data: 'endDate' },
+            {
+                data: null,
+                "render": function (data, type, row, meta) {
+                    return new Date(data.startDate).toLocaleDateString().substring(0, 10);
+                }
+            },
+            {
+                data: null,
+                "render": function (data, type, row, meta) {
+                    return new Date(data.endDate).toLocaleDateString().substring(0, 10);
+                }
+            },
             { data: 'quantity' },
             { data: 'notes' },
-            { data: 'status' },
+            {
+                data: null,
+                "render": function (data, type, row, meta) {
+                    if (data.status == 1) {
+                        return `<span class="badge bg-danger">Reject</span>`;
+                    }
+                    else if (data.status == 2) {
+                        return `<span class="badge bg-info">Return</span>`;
+                    }
+                    else if (data.status == 3) {
+                        return `<span class="badge bg-warning">Waiting</span>`;
+                    }
+                    else if (data.status == 4) {
+                        return `<span class="badge bg-success">Approve</span>`;
+                    }
+                    else if (data.status == 5) {
+                        return `<span class="badge bg-primary">Taken</span>`;
+                    }
+                }
+            },
             {
                 data: null,
                 "render": function (data, type, row, meta) {
@@ -91,8 +115,8 @@ function NeedsApproval(id) {
             <p>Quantity: </p><input type="text" class="form-control" id="reqQuantity" placeholder="${res.data.quantity}" value="${res.data.quantity}" readonly>
             <p>Notes: </p><input type="text" class="form-control" id="reqNotes" placeholder="${res.data.notes}" value="${res.data.notes}" readonly>
             <p>Status Id: </p><input type="text" class="form-control" id="reqStatus" placeholder="${res.data.statusId}" value="${res.data.statusId}">
-            <button type= "button" class= "btn-success" id= "editButton" onclick="Approve('${res.data.id}')">Approve</button>
-            <button type= "button" class= "btn-danger" id= "editButton" onclick="Reject('${res.data.id}')">Reject</button>
+            <button type= "button" class= "btn btn-success" id= "editButton" onclick="Approve('${res.data.id}')">Approve</button>
+            <button type= "button" class= "btn btn-danger" id= "editButton" onclick="Reject('${res.data.id}')">Reject</button>
             `;
         $("#editApproval").html(temp);
     }).fail((err) => {
