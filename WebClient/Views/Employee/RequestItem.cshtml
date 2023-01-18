@@ -49,13 +49,26 @@
                         <label for="input-userId" class="form-control-label" hidden>User Id</label>
                         <input type="text" id="input-akunId" class="form-control form-control-alternative" value="@id2" readonly />
                     </div>
+                    <div class="form-group">
+                        <label class="form-control-label" for="items">Item</label>
+                        <select class="form-control form-control-alternative" id="input-item" name="item">
+                            <option hidden>Choose</option>
+                            <option value="1">Laptop</option>
+                            <option value="2">Charger</option>
+                            <option value="3">HDMI Cable</option>
+                            <option value="4">VGA Cable</option>
+                            <option value="5">Motorcycle</option>
+                            <option value="6">Car</option>
+                            <option value="7">Flashdisk</option>
+                            <option value="8">Meja</option>
+                            <option value="9">Kursi</option>
+                            <option value="10">Sofa</option>
+                        </select>
+                        <div class="invalid-feedback"></div>
+                    </div>
                     <div class="form-group focused">
                         <label class="form-control-label" for="input-quantity">Quantity</label>
-                        <input type="text" id="input-quantity" name="qty" class="form-control form-control-alternative" placeholder="Number of item">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-control-label" for="items"> Item</label>
-                        <input type="text" id="input-item" name="item" class="form-control form-control-alternative">
+                        <input type="text" id="input-quantity" name="qty" class="form-control form-control-alternative" placeholder="Quantity of item">
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" for="input-start-date">Start Date</label>
